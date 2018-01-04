@@ -1,0 +1,33 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.zoomIn
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CampaignAddController as CampaignAdd')
+							h1 {{CampaignAdd.title}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href="/campaign") Voltar
+									div.showMessage.col-md-12(style='height:auto;')
+									form(id='formCompany' class='form-horizontal')
+										div.form-group
+											label.col-md-4.control-label(for='name') Nome
+											div.col-md-5
+												input.form-control.input-md(type='text' name='name' id='name' placeholder='Nome da Campanha' data-ng-model='Form.CampaignAdd.name' required)
+												input(type='hidden' name='company_id' id='company_id' data-ng-model='Form.CampaignAdd.company_id' required)
+										div.form-group
+											div.col-md-3
+											div.col-md-6
+												button(class='btn btn-default btn-primary' type='button' id='btnSaveCampaign' data-ng-click="CampaignAdd.save(Form.CampaignAdd)")
+													span.glyphicon.glyphicon-plus(aria-hidden='true') Salvar 
+							script(src='/javascript/companies.js')
+							script(type='text/javascript').
+								const userParam = !{JSON.stringify(user).replace(/<\//g, '<\\/')};
+								var el = document.getElementById('company_id');
+								setTimeout(function(){
+									el.value = userParam.company_id;
+									el.focus();
+								},700);

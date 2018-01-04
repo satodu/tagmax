@@ -1,0 +1,140 @@
+extends ../layouts/layout
+block content
+	include ../navbar/navbar-up
+	div.container.animated.slideInLeft
+		div.container
+			div.row
+				div.card.col-md-12.col-sm-12
+					div.card-body.no-padding(ng-controller='CampaignTagAddController as CampaignTagAdd')
+						h1= title
+						hr
+						br
+						div.custom-content
+							include campaignRef
+							a.btn.btn-default.btn-primary(id='btn_back' href="/campaign") Voltar
+							br
+							br
+							form(name='CampaignTagAdd.formTag' id="formTag")
+								div.row(style="margin-bottom:5px;")
+									div.col-sm-12
+										div.card-2
+											div.form-group
+												label(style="font-size:20px;") URL :: Landing Page
+												input.form-control(name='url_landing_page' id='url_landing_page' data-ng-blur='CampaignTagAdd.blurLP(Form.CampaignTagAdd.url_landing_page)' data-ng-model='Form.CampaignTagAdd.url_landing_page')
+												h4 Choose yours Analytics
+												hr
+												div.material-switch
+													label.checkbox-inline 
+														|Google Analytics
+														input(type="checkbox" name="ga" data-size="mini" value='Google' data-ng-model='Form.CampaignTagAdd.source')
+													label.checkbox-inline 
+														|AT Internet
+														input(type="checkbox" name="AT internet" value='ATM' data-size="mini" data-ng-model='Form.CampaignTagAdd.source')
+											br
+											br
+								div.row(style="margin-bottom:5px;")
+									div.col-sm-6
+										div.card-2#ga(style="display:none;")
+											h3 Google Analytics Parameters
+											hr
+											div#contentGaForm
+												div.form-group.animated.fadeIn
+													label utm_source
+													input.form-control(name='utm_source' id='utm_source' data-ng-blur='CampaignTagAdd.changeGo("utm_source",Form.CampaignTagAdd.utm_source)' data-ng-model='Form.CampaignTagAdd.utm_source')
+												div.form-group.animated.fadeIn
+													label utm_medium
+													input.form-control(name='utm_medium' id='utm_medium' data-ng-blur='CampaignTagAdd.changeGo("utm_medium",Form.CampaignTagAdd.utm_medium)' data-ng-model='Form.CampaignTagAdd.utm_medium')
+												div.form-group.animated.fadeIn
+													label utm_campaign
+													input.form-control(name='utm_campaign' id='utm_campaign' data-ng-blur='CampaignTagAdd.changeGo("utm_campaign",Form.CampaignTagAdd.utm_campaign)' data-ng-model='Form.CampaignTagAdd.utm_campaign')
+												div.form-group.animated.fadeIn
+													label utm_term
+													input.form-control(name='utm_term' id='utm_term' data-ng-blur='CampaignTagAdd.changeGo("utm_term",Form.CampaignTagAdd.utm_term)' data-ng-model='Form.CampaignTagAdd.utm_term')
+												div.form-group.animated.fadeIn
+													label utm_content
+													input.form-control(name='utm_content' id='utm_content' data-ng-blur='CampaignTagAdd.changeGo("utm_content",Form.CampaignTagAdd.utm_content)' data-ng-model='Form.CampaignTagAdd.utm_content')
+												div.form-group
+													label Result Google
+													input.form-control(name='ga_result' id='ga_resultga_result' data-ng-value='CampaignTagAdd.htmlGo' data-ng-model='Form.CampaignTagAdd.ga_result' disabled)
+									div.col-sm-6
+										div.card-2#at(style="display:none;")
+											h3 AT Intenet Parameters
+											hr
+											div.form-group
+												select.selectpicker#atSelect(data-ng-model='Form.CampaignTagAdd.type_at' style="width:100%;" data-live-search="true" data-ng-change='CampaignTagAdd.change("type_at",Form.CampaignTagAdd.type_at)')
+													option(value='Sponsor Links') Sponsor Links
+													option(value='Email Campaigns') Email Campaigns
+													option(value='Advertising') Advertising
+													option(value='Affiliation') Affiliation
+													option(value='RSS') RSS
+											div#contentAtForm
+												form-group.animated.fadeIn#form_plataform
+													label Plataform
+													input.form-control(id='plataform' name='plataform' data-ng-blur='CampaignTagAdd.change("plataform",Form.CampaignTagAdd.plataform)' data-ng-model='Form.CampaignTagAdd.plataform')
+												form-group.animated.fadeIn#form_ad_group
+													label Ad Group
+													input.form-control(id='ad_group' name='ad_group' data-ng-blur='CampaignTagAdd.change("ad_group",Form.CampaignTagAdd.ad_group)' data-ng-model='Form.CampaignTagAdd.ad_group')
+												form-group.animated.fadeIn#form_ad_variant
+													label Ad Variant
+													input.form-control(id='ad_variant' name='ad_variant' data-ng-blur='CampaignTagAdd.change("ad_variant",Form.CampaignTagAdd.ad_variant)' data-ng-model='Form.CampaignTagAdd.ad_variant')
+												form-group.animated.fadeIn#form_search
+													label Search
+													input.form-control(id='search' name='search' data-ng-model='Form.CampaignTagAdd.search' data-ng-blur='CampaignTagAdd.change("search",Form.CampaignTagAdd.search)')
+												form-group.animated.fadeIn#form_exact_purchase_keyword
+													label Exact Purchase Keyword
+													input.form-control(id='exact_purchase_keyword' name='exact_purchase_keyword' data-ng-blur='CampaignTagAdd.change("exact_purchase_keyword",Form.CampaignTagAdd.exact_purchase_keyword)' data-ng-model='Form.CampaignTagAdd.exact_purchase_keyword')
+												form-group.animated.fadeIn#form_email_campaing
+													label Email campaign
+													input.form-control(id='email_campaing' name='email_campaing' data-ng-blur='CampaignTagAdd.change("email_campaing",Form.CampaignTagAdd.email_campaing)' data-ng-model='Form.CampaignTagAdd.email_campaing')
+												form-group.animated.fadeIn#form_link
+													label Link
+													input.form-control(id='link' name='link' data-ng-blur='CampaignTagAdd.change("link",Form.CampaignTagAdd.link)' data-ng-model='Form.CampaignTagAdd.link')
+												form-group.animated.fadeIn#form_recipient
+													label Recipient
+													input.form-control(id='recipient' name='recipient' data-ng-blur='CampaignTagAdd.change("recipient",Form.CampaignTagAdd.recipient)' data-ng-model='Form.CampaignTagAdd.recipient')
+												form-group.animated.fadeIn#form_exact_date_and_time
+													label Exact date and time
+													input.form-control(id='exact_date_and_time' name='exact_date_and_time' data-ng-blur='CampaignTagAdd.change("reciexact_date_and_timepient",Form.CampaignTagAdd.exact_date_and_time)' data-ng-model='Form.CampaignTagAdd.exact_date_and_time')
+												form-group.animated.fadeIn#form_creative
+													label Creative
+													input.form-control(id='creative' name='creative' data-ng-blur='CampaignTagAdd.change("creative",Form.CampaignTagAdd.creative)' data-ng-model='Form.CampaignTagAdd.creative')
+												form-group.animated.fadeIn#form_variant
+													label Variant
+													input.form-control(id='variant' name='variant' data-ng-blur='CampaignTagAdd.change("variant",Form.CampaignTagAdd.variant)' data-ng-model='Form.CampaignTagAdd.variant')
+												form-group.animated.fadeIn#form_format
+													label Format
+													input.form-control(id='format' name='format' data-ng-blur='CampaignTagAdd.change("format",Form.CampaignTagAdd.format)' data-ng-model='Form.CampaignTagAdd.format')
+												form-group.animated.fadeIn#form_support_site
+													label Support Site
+													input.form-control(id='support_site' name='support_site' data-ng-blur='CampaignTagAdd.change("support_site",Form.CampaignTagAdd.support_site)' data-ng-model='Form.CampaignTagAdd.support_site')
+												form-group.animated.fadeIn#form_general_position
+													label General position
+													input.form-control(id='general_position' name='general_position' data-ng-blur='CampaignTagAdd.change("general_position",Form.CampaignTagAdd.general_position)' data-ng-model='Form.CampaignTagAdd.general_position')
+												form-group.animated.fadeIn#form_position_detail
+													label Position detail
+													input.form-control(id='position_detail' name='position_detail' data-ng-blur='CampaignTagAdd.change("position_detail",Form.CampaignTagAdd.position_detail)' data-ng-model='Form.CampaignTagAdd.position_detail')
+												form-group.animated.fadeIn#form_affiliate_type
+													label Affiliate type
+													input.form-control(id='affiliate_type' name='affiliate_type' data-ng-blur='CampaignTagAdd.change("affiliate_type",Form.CampaignTagAdd.affiliate_type)' data-ng-model='Form.CampaignTagAdd.affiliate_type')
+												form-group.animated.fadeIn#form_affiliate
+													label Affiliate
+													input.form-control(id='affiliate' name='affiliate' data-ng-blur='CampaignTagAdd.change("affiliate",Form.CampaignTagAdd.affiliate)' data-ng-model='Form.CampaignTagAdd.affiliate')
+											div.form-group
+												label Result AT
+												input.form-control(disabled data-ng-value='CampaignTagAdd.htmlAt' data-ng-model='Form.CampaignTagAdd.result_at' id='result_at' name='result_at')
+								div.row(style="margin-bottom:5px;")
+									div.col-sm-12
+										div.card-2
+											div.form-group
+												label URL with all parameters
+												input.form-control(id='url_complete' name='url_complete' data-ng-value='CampaignTagAdd.campaign.url_complete' data-ng-model='Form.CampaignTagAdd.url_complete' disabled)
+												br
+												button(class='btn btn-default btn-primary' type='button' id='btnSaveCampaignTag' data-ng-click="CampaignTagAdd.save(Form.CampaignTagAdd)") Salvar
+						script(type='text/javascript').
+								let path_url   = window.location.href ;
+								let srtArr     = path_url.split("/");
+								let strAr      = srtArr[4].split("#!");
+								let idCampaign = strAr[0];
+								document.getElementById('btn_back').setAttribute('href', '/campaign/' + idCampaign);
+						script(src='/javascript/campaigntags.js')
+						script(src='/javascript/campaigns.js')

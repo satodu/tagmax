@@ -1,0 +1,38 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft
+				div.col-lg-12.col-sm-12
+					div.card.hovercard
+						div.card-background
+							img.card-bkimg(src='http://lorempixel.com/100/100/people/9/')
+						div.useravatar
+							img(src='https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png')
+						div.card-info
+							span.card-title #{user.name}
+					div.btn-pref.btn-group.btn-group-justified.btn-group-lg(role='group')
+						div.btn-group(role='group')
+							button.btn.btn-primary(type='button' id='stars' href='#tab1' data-toggle='tab')
+								i(class="fa fa-address-card fa-lg" aria-hidden="true" style="color: white; font-size: 45px !important;" )
+								div.hidden-xs Profile
+					div.well
+						div.tab-content
+							div(class='tab-pane fade in active' id='tab1')
+								div.row
+									div.col-md-12
+										h3
+											i.fa.fa-user.fa-fw(aria-hidden="true")
+											b   #{user.name}
+									div.col-md-12
+										h3
+											i.fa.fa-envelope.fa-fw(aria-hidden="true")
+											b   #{user.email}
+									div.col-md-12
+										h3
+											i.fa.fa-phone.fa-fw(aria-hidden="true")
+											b   #{user.phone}
+							div(class='tab-pane fade in' id='tab2')
+								h3 This is tab 2
+							div(class='tab-pane fade in' id='tab3')
+								h3 This is tab 3
+		script(src='/javascript/user.js')

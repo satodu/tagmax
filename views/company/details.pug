@@ -1,0 +1,59 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CompanyDetailsController as CompanyDetail')
+							h1 {{CompanyDetail.titleL}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href="/companies") Voltar
+									hr
+									table(class='table table-striped table-bordered' id='' cellspacing='0')
+										tr
+											th.col-md-6 Empresa
+											th CNPJ
+										tr
+											td {{CompanyDetail.company.name}}
+											td {{CompanyDetail.company.cnpj}}
+										tr
+											th Responsável
+											th Fone
+										tr
+											td {{CompanyDetail.company.responsible}}
+											td {{CompanyDetail.company.phone_comm}}
+									br
+									div.container
+										ul.nav.nav-tabs.nav-justified.nav-pills(id='myTabs')
+											li(class='active' role='presentation')
+												a(href='#listUsers' aria-controls="listUsers" data-toggle="tab") Usuários
+											li(role='presentation')
+												a(href='#listCampaings' aria-controls="listCampaings" data-toggle="tab") Campanhas
+
+										div.tab-content
+											div.tab-pane.active(role='tabpanel' id='listUsers')
+												br
+												table(class='table table-striped table-bordered' id='tabUsers' cellspacing='0')
+													thead
+														tr
+															th Nome
+															th Fone
+															th E-mail
+													tbody
+														tr(data-ng-repeat='user in CompanyDetail.company.users')
+															td {{user.name}}
+															td {{user.phone}}
+															td {{user.email}}
+											div.tab-pane(role='tabpanel' id='listCampaings')
+												br
+												table(class='table table-striped table-bordered' id='tabCampaings' cellspacing='0')
+													thead
+														tr
+															th Nome
+													tbody
+														tr(data-ng-repeat='campaign in CompanyDetail.company.campaigns')
+															td {{campaign.name}}
+							script(src='/javascript/companies.js')

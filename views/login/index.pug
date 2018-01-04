@@ -1,0 +1,36 @@
+extends ../layouts/layout
+block content
+    div.container
+        div.row
+            div.card-2.background-white.animated.zoomIn.col-md-6.col-md-offset-3.col-sm-12.login-form(ng-controller='LoginController as Login') 
+                if loginMessage
+                    div(class='alert alert-danger') #{loginMessage}
+                form(method='post' action='/login')
+                    div.title
+                        h2 TagMax
+                    hr
+                    div.form-group
+                        label Email
+                        input(
+                            type="text"
+                            name="email"
+                            id="email"
+                            class="form-control"
+                            data-ng-model="Form.Login.email"
+                        )
+                    div.form-group
+                        label Password
+                        input(
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="form-control"
+                            data-ng-model="Form.Login.password"
+                        )
+                    button(
+                        type="submit"
+                        class="btn btn-primary btn-lg"  
+                    ) Login
+                    hr
+                    p.text-footer powered By <a href="http://interaction.ag"><img class="imgFooter" src="https://interaction.ag/wp-content/uploads/2017/03/LOGO_grande.png" /></a>
+    script(src='/javascript/auth.js')

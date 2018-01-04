@@ -1,0 +1,43 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='UserAddController as UserAdd')
+							h1 {{UserAdd.title}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href="/users") Voltar
+									div.showMessage.col-md-12(style='height:auto;')
+									form(id='formUser' class='form-horizontal')
+										div.form-group
+											label.col-md-4.control-label(for='name') Empresa
+											div.col-md-5(ng-controller='CompanyController as Company')
+												select.form-control.input-md(name='company_id' id='company_id' ng-options="company.name for company in Company.companies track by company._id" data-ng-model='Form.UserAdd.company_id' style='width:100%;' data-live-search='true')
+										div.form-group 
+											label.col-md-4.control-label(for='name') Nome
+											div.col-md-5
+												input.form-control.input-md(type='text' name='name' id='name' placeholder='Seu nome' data-ng-model='Form.UserAdd.name' required)
+										div.form-group
+											label.col-md-4.control-label(for='email') E-mail
+											div.col-md-5
+												input.form-control.input-md(type='text' name='email' id='email' placeholder='Seu melhor e-mail' data-ng-model='Form.UserAdd.email')
+										div.form-group
+											label.col-md-4.control-label(for='phone') Telefone
+											div.col-md-5
+												input.form-control.input-md(type='text' name='phone' id='phone' placeholder='Seu telefone' data-ng-model='Form.UserAdd.phone' ui-br-phone-number)
+										div.form-group
+											label.col-md-4.control-label(for='password') Senha
+											div.col-md-5
+												input.form-control.input-md(type='password' name='password' id='password' data-ng-model='Form.UserAdd.password')
+										div.form-group
+											div.col-md-3
+											div.col-md-6
+												button(class='btn btn-default btn-primary' type='button' id='btnSaveUser' data-ng-click="UserAdd.saveUser(Form.UserAdd)")
+													span.glyphicon.glyphicon-plus(aria-hidden='true') Salvar
+							script(src='/javascript/user.js')
+							script(type='text/javascript').
+								const userParam = !{JSON.stringify(user).replace(/<\//g, '<\\/')};

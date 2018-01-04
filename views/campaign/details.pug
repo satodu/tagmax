@@ -1,0 +1,49 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.zoomIn
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CampaignDetailsController as CampaignDetail')
+							h1 {{CampaignDetail.titleL}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href="/campaign") Voltar
+									hr
+									table(class='table table-striped table-bordered' id='' cellspacing='0')
+										tr
+											th.col-md-6 Nome
+											th Empresa
+										tr
+											td {{CampaignDetail.campaigns.name}}
+											td {{CampaignDetail.campaigns.company[0].name}}
+									br
+									div.container
+										ul.nav.nav-tabs.nav-justified.nav-pills(id='myTabs')
+											li(class='active' role='presentation')
+												a(href='#listCampaings' aria-controls="listUsers" data-toggle="tab") Tags Campanhas
+
+										div.tab-content
+											div.tab-pane.active(role='tabpanel' id='listCampaings')
+												br
+												a.btn.btn-default.btn-primary(id="add_tag" href="") Adicionar Tag
+												br
+												br
+												table(class='table table-striped table-bordered' id='tabUsers' cellspacing='0')
+													thead
+														tr
+															th.col-md-6 Url Landing Page
+															th Url Complete
+													tbody
+														tr(data-ng-repeat='tag in CampaignDetail.campaigns.tags')
+															td {{tag.url_landing_page}}
+															td {{tag.url_complete}}
+							script(type='text/javascript').
+								let path_url   = window.location.href ;
+								let srtArr     = path_url.split("/");
+								let strAr      = srtArr[4].split("#!");
+								let idCampaign = strAr[0];
+								document.getElementById('add_tag').setAttribute('href', '/campaigntag/' + idCampaign + '/add');
+							script(src='/javascript/campaigns.js')

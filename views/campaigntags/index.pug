@@ -1,0 +1,23 @@
+extends ../layouts/layout
+block content
+  include ../navbar/navbar-up
+  script(src='/javascript/campaigntags.js')
+  div.container.animated.slideInLeft(ng-controller='CampaignTagAddController as CampaignTagAdd') 
+    h1= title
+    hr
+    include campaignRef
+    br
+    form(name='CampaignTagAdd.formTag' id="formTag")
+      div.row(style="margin-bottom:5px;")
+        div.col-sm-12
+          include analytics-option
+      div.row(style="margin-bottom:5px;")
+        div.col-sm-6
+          include googleutm
+        div.col-sm-6
+          include at-internet
+      div.row(style="margin-bottom:5px;")
+        div.col-sm-12
+          include actions
+      concatfield
+

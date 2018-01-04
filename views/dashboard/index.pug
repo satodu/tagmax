@@ -1,0 +1,60 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft(ng-controller='DashboardController as Dash') 
+				div.container
+					div.row
+						div.col-md-3.col-sm-3
+							div.card.box-border-blue
+								div.card-body.no-padding
+									strong.text-success.text-lg.pull-right 20%
+										i.glyphicon.glyphicon-flash
+									strong.text-xl $ 40,00
+									br
+									div.custom-content
+						div.col-md-3.col-sm-3
+							div.card.box-border-orange
+								div.card-body.no-padding
+									strong.text-success.text-lg.pull-right 20%
+										i.glyphicon.glyphicon-flash
+									strong.text-xl $ 40,00
+									br
+									div.custom-content
+						div.col-md-3.col-sm-3
+							div.card.box-border-red
+								div.card-body.no-padding
+									strong.text-success.text-lg.pull-right 20%
+										i.glyphicon.glyphicon-flash
+									strong.text-xl $ 40,00
+									br
+									div.custom-content
+						div.col-md-3.col-sm-3
+							div.card.box-border-green
+								div.card-body.no-padding
+									strong.text-success.text-lg.pull-right 20%
+										i.glyphicon.glyphicon-flash
+									strong.text-xl $ 40,00
+									br
+									div.custom-content
+				div.container
+					div.row
+						div.col-md-9.col-sm-6
+							div.card
+								div.card-body.no-padding
+									h3 box 6
+									br
+									div.custom-content
+						div.col-md-3.col-sm-6
+							div.card
+								div.card-body.no-padding
+									h3 New Users
+									br
+									div.custom-content
+										ul
+											li
+												a Alexsandro
+											li
+												a Eduardo
+											li
+												a Fernando
+

@@ -1,0 +1,37 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CompanyAddController as CompanyAdd')
+							h1 {{CompanyAdd.title}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href="/companies") Voltar
+									div.showMessage.col-md-12(style='height:auto;')
+									form(id='formCompany' class='form-horizontal')
+										div.form-group
+											label.col-md-4.control-label(for='name') Nome
+											div.col-md-5
+												input.form-control.input-md(type='text' name='name' id='name' placeholder='Seu nome' data-ng-model='Form.CompanyAdd.name' required)
+										div.form-group
+											label.col-md-4.control-label(for='cnpj') CNPJ
+											div.col-md-5
+												input.form-control.input-md(type='text' name='cnpj' id='cnpj' placeholder='Informe CNPJ válido' data-ng-model='Form.CompanyAdd.cnpj' ui-br-cnpj-mask)
+										div.form-group
+											label.col-md-4.control-label(for='responsible') Responsável
+											div.col-md-5
+												input.form-control.input-md(type='text' name='responsible' id='responsible' placeholder='Nome do responsável' data-ng-model='Form.CompanyAdd.responsible')
+										div.form-group
+											label.col-md-4.control-label(for='phone_comm') Telefone comercial
+											div.col-md-5
+												input.form-control.input-md(type='text' name='phone_comm' id='phone_comm' placeholder='Telefone contato' data-ng-model='Form.CompanyAdd.phone_comm' ui-br-phone-number)
+										div.form-group
+											div.col-md-3
+											div.col-md-6
+												button(class='btn btn-default btn-primary' type='button' id='btnSaveUser' data-ng-click="CompanyAdd.save(Form.CompanyAdd)")
+													span.glyphicon.glyphicon-plus(aria-hidden='true') Salvar
+							script(src='/javascript/companies.js')

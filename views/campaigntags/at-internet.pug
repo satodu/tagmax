@@ -1,0 +1,16 @@
+div.card-2#at(style="display:none;")
+    h3 AT Intenet Parameters
+    hr
+    div.form-group
+        select.selectpicker#atSelect(style="width:100%;" data-live-search="true")
+            optgroup(label="Escolha o tipo de campanha")
+                option Sponsor Links
+                option Email Campaigns
+                option Advertising
+                option Affiliation
+                option RSS
+                //option Custom Sources
+    div#contentAtForm
+    div.form-group
+        label Result AT
+        input.form-control#ATresult(disabled)

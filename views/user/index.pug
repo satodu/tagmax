@@ -1,0 +1,37 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.zoomIn
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='UserController as User')
+							h1 {{User.indexTitle}}
+							br
+							div.custom-content
+								div
+									button(class='btn btn-default btn-primary' type='button' id='addUser')
+										span.glyphicon.glyphicon-plus(aria-hidden='true') Adicionar
+									hr
+									table(class='table table-striped table-bordered' id='tbUsers' cellspacing='0')
+										thead
+											tr
+												th E-mail
+												th Nome
+												th Telefone
+												th Ações
+										tbody
+											tr(data-ng-repeat='user in User.users')
+												td {{user.email}}
+												td {{user.name}}												
+												td {{user.phone}}
+												td
+													a.btn.btn-sm.btn-default.edit(href='/users/update/{{user._id}}' ng-hide='user.email === "contato@interaction.ag"')
+														i(class='fa fa-pencil' aria-hidden='true') &nbsp;
+														span Editar
+													button(class='btn btn-sm btn-default delete' type='button' ng-click='User.delete(user)' data-id='{{user._id}}' ng-hide='user.email === "contato@interaction.ag"')
+														i(class="fa fa-trash" aria-hidden="true")
+														span   Deletar
+							script(src='/javascript/user.js')
+							script(type='text/javascript').
+								const userParam = !{JSON.stringify(user).replace(/<\//g, '<\\/')};

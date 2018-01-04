@@ -1,0 +1,34 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.zoomIn
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CampaignController as Campaign')
+							h1 {{Campaign.title}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href='/campaign/add')
+										span.glyphicon.glyphicon-plus(aria-hidden='true') Adicionar
+									hr
+									table(class='table table-striped table-bordered' id='tbCampaigns' cellspacing='0')
+										thead
+											tr
+												th(class='col-md-8') Nome
+												th Ações
+										tbody
+											tr(data-ng-repeat='campaign in Campaign.campaigns')
+												td
+													a(href='/campaign/{{campaign._id}}') {{campaign.name}}
+												td
+													a.btn.btn-sm.btn-default.edit(href='/campaign/edit/{{campaign._id}}')
+														i(class='fa fa-pencil' aria-hidden='true') &nbsp;
+														span Editar
+													button(class='btn btn-sm btn-default delete' type='button' ng-click='Campaign.delete(campaign)' data-id='{{user._id}}')
+														i(class="fa fa-trash" aria-hidden="true")
+														span   Deletar
+							script(src='/javascript/campaigns.js')
+							script(type='text/javascript').
+								const userParam = !{JSON.stringify(user).replace(/<\//g, '<\\/')};

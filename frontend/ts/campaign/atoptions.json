@@ -1,0 +1,116 @@
+{
+    "Sponsor Links": [
+            {
+                "field" : "Plataform",
+                "help" : "213123123123",
+                "content" : ""
+            }, 
+            {
+                "field" : "Ad Group",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "AD Variant",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Search",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field": "Exact Purchase Keyword",
+                "help" : "213123123123",
+                "content" : ""
+            }
+    ],
+    "Email Campaigns": [
+            {
+                "field" : "Email campaign",
+                "help" : "213123123123",
+                "content" : ""
+            }, 
+            {
+                "field" : "Send Date",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Link",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Recipient",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field": "Exact date and time",
+                "help" : "213123123123",
+                "content" : ""
+            }
+    ],
+    "Advertising": [
+            {
+                "field" : "Creative",
+                "help" : "213123123123",
+                "content" : ""
+            }, 
+            {
+                "field" : "Variant",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Format",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Support Site",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field": "General position",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field": "Position detail",
+                "help" : "213123123123",
+                "content" : ""
+            }
+    ],
+    "Affiliation": [
+            {
+                "field" : "Affiliate type",
+                "help" : "213123123123",
+                "content" : ""
+            }, 
+            {
+                "field" : "Affiliate",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Format",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field" : "Creative",
+                "help" : "213123123123",
+                "content" : ""
+            },
+            {
+                "field": "Variant",
+                "help" : "213123123123",
+                "content" : ""
+            }
+    ],
+    "RSS" : {}
+}   

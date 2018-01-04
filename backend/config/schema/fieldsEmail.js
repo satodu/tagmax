@@ -1,0 +1,1 @@
+module.exports = {type: String, required: false, index: { sparse: true }};

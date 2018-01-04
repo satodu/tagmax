@@ -1,0 +1,32 @@
+{
+    "utm_source": 
+            {
+                "field" : "utm_source",
+                "help" : "213123123123",
+                "content" : ""
+            },
+    "utm_medium":
+            {
+                "field" : "utm_medium",
+                "help" : "2131asdfasd23123123",
+                "content" : ""
+            },
+    "utm_campaign":
+            {
+                "field" : "utm_campaign",
+                "help" : "213123sdfrqwe123123",
+                "content" : ""
+            },
+    "utm_term": 
+            {
+                "field" : "utm_term",
+                "help" : "213123sasdfasd123123",
+                "content" : ""
+            },
+    "utm_content": 
+            {
+                "field" : "utm_content",
+                "help" : "213123123123",
+                "content" : ""
+            }
+}

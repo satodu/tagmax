@@ -1,0 +1,37 @@
+nav.navbar.navbar-default
+  div.container-fluid
+    div.navbar-header
+      a.navbar-brand(href="/dashboard")
+        img(src="http://interaction.com.br/wp-content/uploads/2014/10/tag-my-site.png" id="img-header")
+    div#navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li
+          a(href="/dashboard")
+            i(class='i i-dash' aria-hidden='true') &nbsp;
+            span Dashboard
+        li
+          a(href="/campaign")
+            i(class='i i-ads' aria-hidden='true') &nbsp; 
+            span Campanhas
+        li
+          a(href="/users") 
+            i(class='i i-users' aria-hidden='true') &nbsp; 
+            span Usuários
+      ul.nav.navbar-nav.navbar-right
+          li.Account
+            a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Account 
+              span.caret
+            ul.dropdown-menu#profile-menu
+              li
+                  a(href="/profile") 
+                    i(class="fa fa-user fa-fw" aria-hidden="true")
+                    span Profile
+              li
+                  a(href="#") 
+                    i(class="fa fa-question fa-fw" aria-hidden="true")
+                    span Help
+              li.divider(role="separator")
+              li
+                  a(href="/logout") 
+                    i(class="fa fa-power-off fa-fw" aria-hidden="true")
+                    span Logout

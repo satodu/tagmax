@@ -1,0 +1,41 @@
+extends ../layouts/layout
+block content
+		include ../navbar/navbar-up
+		div.container.animated.slideInLeft
+			div.container
+				div.row
+					div.card.col-md-12.col-sm-12
+						div.card-body.no-padding(ng-controller='CompanyController as CompanyDetail' data-ng-init='')
+							h1 {{CompanyDetail.title}}
+							br
+							div.custom-content
+								div
+									a.btn.btn-default.btn-primary(href='/companies/add')
+										span.glyphicon.glyphicon-plus(aria-hidden='true') Adicionar
+									hr
+									table(class='table table-striped table-bordered' id='tbCompanies' cellspacing='0')
+										thead
+											tr
+												th(class='col-md-4') Nome
+												th(class='col-md-2') CNPJ
+												th(class='col-md-2') Responsável
+												th Telefone
+												th Ações
+										tbody
+											tr(data-ng-repeat='company in CompanyDetail.companies')
+												td
+													a(href='/companies/{{company._id}}') {{company.name}}
+												td 
+													a(href='/companies/{{company._id}}') {{company.cnpj}}
+												td 
+													a(href='/companies/{{company._id}}') {{company.responsible}}
+												td 
+													a(href='/companies/{{company._id}}') {{company.phone_comm}}
+												td
+													a.btn.btn-sm.btn-default.edit(href='/companies/edit/{{company._id}}')
+														span.glyphicon.glyphicon-pencil Editar
+													button(class='btn btn-sm btn-default delete' type='button' ng-click='CompanyDetail.delete(company)' data-id='{{user._id}}')
+														span(class='glyphicon glyphicon-trash') Deletar
+							script(src='/javascript/companies.js')
+							script(type='text/javascript').
+								const userParam = !{JSON.stringify(user).replace(/<\//g, '<\\/')};
