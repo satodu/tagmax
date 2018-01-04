@@ -7,11 +7,11 @@ createCompany();
 
 function createCompany(){
 	//variaveis do company
-	let nameCompany = 'InterAction';
+	let nameCompany = 'Admin';
 	let cnpj        = '14.318.593/0001-43';
-	let responsible = 'Fernando';
+	let responsible = 'admin';
 	let phone_comm  = '+55 11 2125-6280';
-	let email       = 'contato@interaction.ag';
+	let email       = 'admin@admin.com.br';
 
 
 	companyModel.findOne({name : nameCompany}, function(error, result){
@@ -44,9 +44,9 @@ function createCompany(){
 
 function createUser(company_id){
 	let name       = "Administrador";
-	let email      = "contato@interaction.ag";
+	let email      = "admin@admin.com.br";
 	let phone      = "+55 11 2125-6280";
-	let password   = "@interaction@2017";
+	let password   = "admin@admin";
 	let permission = "super_admin";
 	let filter     = {email : email};
 
